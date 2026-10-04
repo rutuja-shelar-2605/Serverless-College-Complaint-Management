@@ -1,0 +1,13 @@
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+crash.*.log
+
+terraform/lambda/lambda_function.zip
+
+.env
+*.pem
+*.key
