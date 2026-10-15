@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Complaint Management</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <aside class="sidebar">
+    <a href="index.html" class="brand">
+      <img src="assets/casas-logo.png"
+           alt="Department Logo"
+           class="brand-logo">
+      <span class="brand-text">
+        <strong>CASAS Complaint Portal</strong>
+        <small>DEPARTMENT ADMIN</small>
+      </span>
+    </a>
+
+    <div class="sidebar-label">WORKSPACE</div>
+
+    <nav class="sidebar-nav">
+      <a href="#dashboard" class="nav-item active">
+        <span>▦</span> Dashboard
+      </a>
+      <a href="#complaints" class="nav-item">
+        <span>▤</span> All Complaints
+      </a>
+      <a href="#complaints" class="nav-item" data-filter="Pending">
+        <span>◷</span> Pending
+      </a>
+      <a href="#complaints" class="nav-item" data-filter="In Progress">
+        <span>↻</span> In Progress
+      </a>
+      <a href="#complaints" class="nav-item" data-filter="Resolved">
+        <span>✓</span> Resolved
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="help-box">
+        <span class="help-icon">ⓘ</span>
+        <strong>Complaint Support</strong>
+        <p>Manage and monitor campus complaints.</p>
+      </div>
+      <a href="index.html" class="back-link">← Back to Website</a>
+    </div>
+  </aside>
+
+  <main class="main-content" id="dashboard">
+
+    <header class="topbar">
+      <div>
+        <div class="breadcrumb">Workspace / Dashboard</div>
+        <h1>Admin Dashboard</h1>
+      </div>
+      <div class="admin-profile">
+        <span class="admin-avatar">A</span>
+        <span>
+          <strong>Administrator</strong>
+          <small>Complaint Management</small>
+        </span>
+      </div>
+    </header>
+
+    <section class="welcome-row">
+      <div>
+        <h2>Welcome back, Admin!</h2>
+        <p>Here is an overview of campus complaints.</p>
+      </div>
+      <button class="refresh-btn" id="refreshButton">↻ Refresh Data</button>
+    </section>
+
+    <div id="notice" class="notice" hidden role="status"></div>
+
+    <section class="stats-grid">
+      <article class="stat-card">
+        <div class="stat-top">
+          <span>Total Complaints</span>
+          <span class="stat-icon blue">▤</span>
+        </div>
+        <strong id="totalCount">—</strong>
+        <small>All submitted complaints</small>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-top">
+          <span>Pending</span>
+          <span class="stat-icon amber">◷</span>
+        </div>
+        <strong id="pendingCount">—</strong>
+        <small>Awaiting action</small>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-top">
+          <span>In Progress</span>
+          <span class="stat-icon violet">↻</span>
+        </div>
+        <strong id="progressCount">—</strong>
+        <small>Currently being handled</small>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-top">
+          <span>Resolved</span>
+          <span class="stat-icon teal">✓</span>
+        </div>
+        <strong id="resolvedCount">—</strong>
+        <small>Successfully resolved</small>
+      </article>
+    </section>
+
+    <section class="table-panel" id="complaints">
+      <div class="table-heading">
+        <div>
+          <span class="section-kicker">COMPLAINT MANAGEMENT</span>
+          <h2>All Complaints</h2>
+          <p>Review complaints and update their status.</p>
+        </div>
+        <span class="live-label"><i></i> API Connected</span>
+      </div>
+
+      <div class="table-toolbar">
+        <input id="searchInput" type="search"
+               placeholder="Search ID, category or description...">
+
+        <select id="statusFilter" aria-label="Filter by status">
+          <option value="">All statuses</option>
+          <option value="Pending">Pending</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Resolved">Resolved</option>
+        </select>
+
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="">All categories</option>
+        </select>
+      </div>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Complaint ID</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Update Status</th>
+            </tr>
+          </thead>
+          <tbody id="complaintsTable">
+            <tr>
+              <td colspan="6" class="empty-state">Loading complaints...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-footer">
+        <span id="resultCount">Loading records...</span>
+        <span>CASAS Complaint Portal</span>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>© 2026 Department Complaint Portal</span>
+      <span>New Arts, Commerce and Science College Ahilyanagar</span>
+    </footer>
+
+  </main>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

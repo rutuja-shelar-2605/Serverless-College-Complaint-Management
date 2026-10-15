@@ -138,6 +138,12 @@ resource "aws_apigatewayv2_route" "update_complaint" {
   target    = "integrations/${aws_apigatewayv2_integration.lambda_integration.id}"
 }
 
+resource "aws_apigatewayv2_route" "list_complaints" {
+  api_id    = aws_apigatewayv2_api.complaint_api.id
+  route_key = "GET /complaints"
+  target    = "integrations/${aws_apigatewayv2_integration.lambda_integration.id}"
+}
+
 resource "aws_apigatewayv2_stage" "default" {
   api_id      = aws_apigatewayv2_api.complaint_api.id
   name        = "$default"

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1220">
+  <title>CASAS | Department Support Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="CASAS home">
+      <img class="brand-logo" src="assets/casas-logo.png" alt="CASAS department logo">
+      <span class="brand-copy"><strong>CASAS <span>Portal</span></strong><small>CENTRE FOR ADVANCED STUDIES IN APPLIED SCIENCES</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav id="mainNav">
+      <a href="#home" class="nav-link active">Overview</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#submit" class="nav-link">Submit a complaint</a>
+      <a href="#track" class="nav-link">Track status</a>
+    </nav>
+    <a class="topbar-action" href="#submit"><span>＋</span> New complaint</a>
+  </header>
+
+  <main id="home">
+    <section class="hero page-width">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> CASAS · DEPARTMENT SUPPORT</div>
+        <h1>A better campus<br>starts with <span>your voice.</span></h1>
+        <p class="hero-description">A central place for students, faculty and staff to report department issues and follow their progress with clarity.</p>
+        <div class="hero-buttons">
+          <a href="#submit" class="btn btn-primary">Raise a complaint <span>↗</span></a>
+          <a href="#track" class="btn btn-glass">Track a complaint <span>→</span></a>
+        </div>
+        <div class="hero-footnotes">
+          <span><i class="check-dot">✓</i> Simple submission</span>
+          <span><i class="check-dot">✓</i> Complaint ID tracking</span>
+        </div>
+      </div>
+
+      <div class="overview-card">
+        <div class="overview-head">
+          <div class="overview-title"><span class="mini-icon">▤</span><div><strong>Complaint workflow</strong><small>How your concern moves</small></div></div>
+          <span class="secure-tag"><span></span> GUIDED PROCESS</span>
+        </div>
+        <div class="workflow">
+          <div class="workflow-item">
+            <span class="step-icon step-blue">01</span><div class="workflow-copy"><strong>Complaint received</strong><small>Your concern is recorded</small></div><span class="step-state">SUBMIT</span>
+          </div>
+          <div class="workflow-line"></div>
+          <div class="workflow-item">
+            <span class="step-icon step-violet">02</span><div class="workflow-copy"><strong>Department review</strong><small>Responsible staff reviews it</small></div><span class="step-state">REVIEW</span>
+          </div>
+          <div class="workflow-line"></div>
+          <div class="workflow-item">
+            <span class="step-icon step-teal">03</span><div class="workflow-copy"><strong>Action & resolution</strong><small>Status updated by staff</small></div><span class="step-state">RESOLVE</span>
+          </div>
+        </div>
+        <div class="overview-note"><span>✦</span> Status shown in the portal will come from the backend after integration.</div>
+      </div>
+    </section>
+<br><br>
+    <section class="metrics page-width" aria-label="Portal features">
+      <article class="metric-card"><span class="metric-icon blue-icon">↗</span><div><strong>Easy reporting</strong><small>Submit from one place</small></div></article>
+      <article class="metric-card"><span class="metric-icon violet-icon">⌕</span><div><strong>Trackable ID</strong><small>Follow complaint progress</small></div></article>
+      <article class="metric-card"><span class="metric-icon teal-icon">◎</span><div><strong>Clear status</strong><small>Pending to resolved</small></div></article>
+    </section>
+
+    <section class="section page-width" id="services">
+      <div class="section-title">
+        <div><span class="section-kicker">PORTAL SERVICES</span><h2>Department support,<br><span>without the runaround.</span></h2></div>
+        <p>Designed for CASAS students, faculty and staff to report issues with the right context.</p>
+      </div>
+      <div class="service-grid">
+        <a class="service-card" href="#submit"><span class="service-number">01 / REPORT</span><span class="service-symbol symbol-blue">＋</span><h3>Raise an issue</h3><p>Describe a lab, classroom, academic or infrastructure concern with relevant details.</p><span class="card-link">Open complaint form <b>↗</b></span></a>
+        <a class="service-card" href="#track"><span class="service-number">02 / FOLLOW</span><span class="service-symbol symbol-violet">⌕</span><h3>Track progress</h3><p>Use your complaint ID to retrieve the status stored in the complaint system.</p><span class="card-link">Track your issue <b>↗</b></span></a>
+        <article class="service-card staff-card"><span class="service-number">03 / DEPARTMENT</span><span class="service-symbol symbol-teal">⌘</span><h3>Staff & HOD workspace</h3><p>A protected workspace for reviewing complaints and updating their status will be enabled after secure sign-in is configured.</p><span class="card-link muted-link">Authentication setup required <b>↗</b></span></article>
+      </div>
+    </section>
+
+    <section class="form-section" id="submit">
+      <div class="page-width form-layout">
+        <div class="form-aside">
+          <span class="section-kicker">STUDENT & STAFF SUPPORT</span>
+          <h2>Tell us what<br>needs attention.</h2>
+          <p>Share clear details so the department can understand and review the issue.</p>
+          <div class="aside-callout"><span class="callout-icon">i</span><p><strong>Keep your Complaint ID</strong><br>After successful submission, save the ID displayed by the system to check progress later.</p></div>
+          <div class="privacy-note"><span>◇</span> Please avoid including passwords or unnecessary sensitive personal information.</div>
+        </div>
+
+        <form id="complaintForm" class="panel form-panel">
+          <div class="panel-heading"><div><span class="panel-overline">NEW REQUEST</span><h3>Complaint details</h3><p>Complete all fields marked with an asterisk.</p></div><span class="panel-icon">✎</span></div>
+          <div class="field-grid">
+            <div class="field"><label for="studentName">Full name <em>*</em></label><input id="studentName" name="student_name" autocomplete="name" placeholder="Enter your full name" required maxlength="100"></div>
+            <div class="field"><label for="department">Course / role <em>*</em></label><input id="department" name="department" placeholder="e.g. B.Sc. Cloud Computing" required maxlength="100"></div>
+            <div class="field"><label for="category">Complaint category <em>*</em></label><select id="category" name="category" required><option value="">Choose a category</option><option>Computer / Lab</option><option>Wi-Fi / Internet</option><option>Classroom</option><option>Academics</option><option>Project / Practical</option><option>Timetable</option><option>Infrastructure</option><option>Other</option></select></div>
+            <div class="field"><label for="location">Room / lab (optional)</label><input id="location" name="location" placeholder="e.g. Computer Lab 2" maxlength="100"></div>
+            <div class="field full-field"><label for="description">Describe the issue <em>*</em></label><textarea id="description" name="description" rows="5" placeholder="What happened? Where and when did you notice it?" required minlength="8" maxlength="2000"></textarea><div class="field-hint">Please be specific and respectful. Maximum 2,000 characters.</div></div>
+          </div>
+          <div class="submit-row"><span><span class="required-star">*</span> Required fields</span><button class="btn btn-primary" type="submit" id="submitButton">Submit complaint <span>↗</span></button></div>
+          <div class="message-box" id="formMessage" role="status" aria-live="polite" hidden></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="track-section page-width" id="track">
+      <div class="track-intro"><span class="section-kicker">COMPLAINT LOOKUP</span><h2>Know where it<br><span>stands.</span></h2><p>Enter the exact Complaint ID returned after a successful submission.</p></div>
+      <form class="panel track-panel" id="trackForm">
+        <div class="track-panel-head"><span class="track-icon">⌕</span><div><h3>Track a complaint</h3><p>Your status is retrieved from the API.</p></div></div>
+        <label for="complaintId">Complaint ID</label>
+        <div class="track-input-row"><input id="complaintId" name="complaint_id" placeholder="e.g. generated complaint ID" required maxlength="150"><button class="btn btn-primary" type="submit" id="trackButton">Check status <span>→</span></button></div>
+        <div class="message-box" id="trackMessage" role="status" aria-live="polite" hidden></div>
+        <div class="result-card" id="trackResult" hidden></div>
+        <p class="track-hint"><span>ⓘ</span> For privacy, only share your Complaint ID with people who need it.</p>
+      </form>
+    </section>
+
+    <section class="process-section">
+      <div class="page-width">
+        <div class="section-title process-title"><div><span class="section-kicker">A CLEARER PROCESS</span><h2>From report to <span>resolution.</span></h2></div><p>The portal supports a consistent process. Actual status changes must be performed by authorized department staff.</p></div>
+        <div class="process-steps"><div><span>01</span><h3>Submit</h3><p>Provide complaint details.</p></div><div><span>02</span><h3>Review</h3><p>Department staff reviews the issue.</p></div><div><span>03</span><h3>Take action</h3><p>The relevant issue is investigated.</p></div><div><span>04</span><h3>Resolve</h3><p>Authorized staff updates the status.</p></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="page-width footer-inner"><a class="brand footer-brand" href="#home"><span class="brand-mark">C<span>.</span></span><span class="brand-copy"><strong>CASAS <span>Portal</span></strong><small>DEPARTMENT COMPLAINT MANAGEMENT</small></span></a><div class="footer-college">New Arts, Commerce and Science College<br><span>Ahilyanagar, Maharashtra</span></div><p class="footer-disclaimer">Department-only portal · Not yet production verified</p></div></footer>
+  <script src="script.js">
+
+
+const API_URL = "https://kiqrjrhubl.execute-api.ap-south-1.amazonaws.com";
+
+const complaintForm = document.getElementById("complaintForm");
+const formMessage = document.getElementById("formMessage");
+const submitButton = document.getElementById("submitButton");
+
+complaintForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const complaintData = {
+        category: document.getElementById("category").value,
+        description: document.getElementById("description").value.trim()
+    };
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting...";
+
+    formMessage.hidden = false;
+    formMessage.textContent = "Submitting your complaint...";
+
+    try {
+        const response = await fetch(`${API_URL}/complaints`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(complaintData)
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.message || "Complaint submission failed.");
+        }
+
+        formMessage.textContent =
+            `Complaint submitted successfully! Complaint ID: ${result.complaint_id}. Status: ${result.status}`;
+
+        complaintForm.reset();
+
+    } catch (error) {
+        console.error("Submission error:", error);
+        formMessage.textContent =
+            "Complaint submit झाली नाही. Internet, API URL आणि AWS Lambda logs तपासा.";
+    } finally {
+        submitButton.disabled = false;
+        submitButton.innerHTML = 'Submit complaint <span>↗</span>';
+    }
+});
+
+
+  </script>
+</body>
+</html>

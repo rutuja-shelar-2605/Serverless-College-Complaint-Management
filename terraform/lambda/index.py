@@ -95,23 +95,33 @@ def lambda_handler(event, context):
             })
         }
 
-    # Track Complaint
+        # List all complaints OR Track one complaint
     if method == "GET":
 
         complaint_id = event.get("pathParameters", {}).get("complaint_id")
 
+        # Dashboard: Get all complaints
         if not complaint_id:
+            response = table.scan()
+            items = response.get("Items", [])
+
+            while "LastEvaluatedKey" in response:
+                response = table.scan(
+                    ExclusiveStartKey=response["LastEvaluatedKey"]
+                )
+                items.extend(response.get("Items", []))
+
             return {
-                "statusCode": 400,
-                "body": json.dumps({
-                    "message": "Complaint ID is required"
-                })
+                "statusCode": 200,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": json.dumps(items, default=str)
             }
 
+        # Track a single complaint
         response = table.get_item(
-            Key={
-                "complaint_id": complaint_id
-            }
+            Key={"complaint_id": complaint_id}
         )
 
         item = response.get("Item")
@@ -119,6 +129,9 @@ def lambda_handler(event, context):
         if not item:
             return {
                 "statusCode": 404,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
                 "body": json.dumps({
                     "message": "Complaint not found"
                 })
@@ -129,12 +142,36 @@ def lambda_handler(event, context):
             "headers": {
                 "Content-Type": "application/json"
             },
-            "body": json.dumps(item)
+            "body": json.dumps(item, default=str)
         }
 
     return {
         "statusCode": 405,
+        "headers": {
+            "Content-Type": "application/json"
+        },
         "body": json.dumps({
             "message": "Method not allowed"
         })
     }
+        # List All Complaints for Admin Dashboard
+    if method == "GET" and not event.get("pathParameters", {}).get("complaint_id"):
+
+        response = table.scan()
+        items = response.get("Items", [])
+
+        while "LastEvaluatedKey" in response:
+            response = table.scan(
+                ExclusiveStartKey=response["LastEvaluatedKey"]
+            )
+            items.extend(response.get("Items", []))
+
+        return {
+            "statusCode": 200,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": json.dumps({
+                "complaints": items
+            })
+        }
